@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Frontend Developer",
+    "greeting": "Hi, I'm Tử Vi 👋",
+    "desc": "Recent IT graduate from STU seeking a Frontend Internship. I build meticulous web interfaces with a growth mindset.",
+    "btn_projects": "View Projects",
+    "btn_cv": "View CV",
+    "btn_contact": "Contact Me"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A little bit about my journey",
+    "bio_title": "Hello, I'm Tử Vi!",
+    "bio_desc": "I am a recent IT graduate with a strong passion for Frontend Development. I aim to apply system thinking and meticulousness to build web products that are not only beautiful but also user-friendly.",
+    "edu_title": "Education",
+    "edu_school": "Saigon Technology University (STU)",
+    "edu_major": "Major: Information Technology (2021 - 2025)",
+    "act_title": "Activities & Interests",
+    "act_role": "Class Secretary (2021 - 2024)",
+    "act_desc": "Coordinated academic and faculty activities, strengthened leadership and communication skills.",
+    "hobbies": "Interests: Cooking, Movies, Music 🎵",
+    "soft": ["Teamwork", "Self-learning", "Time Management", "Basic English"]
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "The toolbox I use to build products",
+    "fe": "Frontend Development",
+    "be": "Backend & Mobile",
+    "tools": "Tools & Others",
+    "soft": "Soft Skills"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Practical products I have built",
+    "demo": "Live Demo",
+    "code": "View Code",
+    "list": {
+      "p1": {
+        "title": "E-commerce Website",
+        "desc": "Full-stack system for selling phones & laptops using ReactJS, Node.js, and MySQL. Features: Cart, Checkout, Inventory."
+      },
+      "p2": {
+        "title": "Smart Fridge Management App",
+        "desc": "Mobile app for food tracking and expiry alerts. Built with Flutter (Frontend) and Node.js (Backend)."
+      },
+      "p3": {
+        "title": "My Portfolio",
+        "desc": "Personal portfolio website (this site) built with ReactJS, Tailwind CSS, and i18n support."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'm open to Frontend Internship opportunities!",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Message...",
+    "btn_send": "Send Message",
+    "info_email": "Email",
+    "info_phone": "Phone",
+    "info_loc": "Location"
+  },
+  "footer": {
+    "title": "Let's work together!",
+    "subtitle": "Have a project idea? Get in touch to bring it to life.",
+    "copyright": "© 2026 Tu Vi. Built with ReactJS & Tailwind CSS."
+  }
+}

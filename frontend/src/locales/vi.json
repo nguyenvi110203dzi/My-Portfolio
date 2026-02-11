@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "role": "Lập trình viên Frontend",
+    "greeting": "Chào bạn, mình là Tử Vi 👋",
+    "desc": "Sinh viên CNTT trường STU với tư duy hệ thống, yêu thích tạo ra giao diện web tỉ mỉ và trải nghiệm người dùng tối ưu.",
+    "btn_projects": "Xem Dự Án",
+    "btn_cv": "Xem CV",
+    "btn_contact": "Liên Hệ Ngay"
+  },
+  "about": {
+    "title": "Về Bản Thân",
+    "subtitle": "Đôi nét về hành trình và con người mình",
+    "bio_title": "Xin chào, mình là Tử Vi!",
+    "bio_desc": "Mình là một Tân cử nhân CNTT với niềm đam mê mãnh liệt về Frontend. Mình luôn mong muốn áp dụng tư duy hệ thống và sự tỉ mỉ để tạo ra những sản phẩm web không chỉ đẹp mà còn tối ưu trải nghiệm người dùng.",
+    "edu_title": "Học Vấn",
+    "edu_school": "Đại học Công nghệ Sài Gòn (STU)", 
+    "edu_major": "Chuyên ngành: Công nghệ thông tin (2021 - 2025)",
+    "act_title": "Hoạt Động & Sở Thích",
+    "act_role": "Bí thư lớp (2021 - 2024)",
+    "act_desc": "Điều phối các hoạt động phong trào của khoa và trường, rèn luyện kỹ năng lãnh đạo và giao tiếp.",
+    "hobbies": "Sở thích: Nấu ăn, Xem phim, Nghe nhạc 🎵",
+    "soft": ["Làm việc nhóm", "Tự học & Cầu tiến", "Quản lý thời gian", "Tiếng Anh cơ bản"]
+  },
+  "skills": {
+    "title": "Kỹ Năng Chuyên Môn",
+    "subtitle": "Bộ công cụ mình sử dụng để xây dựng sản phẩm",
+    "fe": "Frontend Development",
+    "be": "Backend & Mobile",
+    "tools": "Công cụ & Khác",
+    "soft": "Kỹ Năng Mềm"
+  },
+  "projects": {
+    "title": "Dự Án Nổi Bật",
+    "subtitle": "Những sản phẩm thực tế mình đã xây dựng",
+    "demo": "Xem Demo",
+    "code": "Xem Code",
+    "list": {
+      "p1": {
+        "title": "Website Thương Mại Điện Tử",
+        "desc": "Hệ thống bán điện thoại & laptop Full-stack với ReactJS, Node.js và MySQL. Có giỏ hàng, thanh toán và quản lý tồn kho."
+      },
+      "p2": {
+        "title": "App Quản Lý Tủ Lạnh (Smart Fridge)",
+        "desc": "Ứng dụng di động giúp theo dõi thực phẩm và cảnh báo hết hạn. Xây dựng bằng Flutter (Frontend) và Node.js (Backend)."
+      },
+      "p3": {
+        "title": "Portfolio Cá Nhân",
+        "desc": "Website giới thiệu bản thân (chính là trang này) sử dụng ReactJS, Tailwind CSS và hỗ trợ đa ngôn ngữ (i18n)."
+      }
+    }
+  },
+  "contact": {
+    "title": "Liên Hệ Với Tôi",
+    "subtitle": "Mình luôn sẵn sàng cho vị trí Thực tập sinh Frontend!",
+    "name": "Họ và tên",
+    "email": "Email của bạn",
+    "message": "Lời nhắn...",
+    "btn_send": "Gửi Tin Nhắn",
+    "info_email": "Email",
+    "info_phone": "Điện thoại",
+    "info_loc": "Địa chỉ"  },
+   "footer": {
+    "title": "Hãy cùng hợp tác!",
+    "subtitle": "Bạn có ý tưởng dự án? Hãy liên hệ để biến nó thành hiện thực.",
+    "copyright": "© 2026 Tử Vi. Xây dựng bằng ReactJS & Tailwind CSS."
+  }
+}
