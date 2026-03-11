@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Folder, LogOut, Plus, User, Edit3, Image as ImageIcon, Github, ExternalLink, FileText, Trash2, Save, UploadCloud } from 'lucide-react';
 
 
-const API_URL = "https://my-portfolio-go8i.onrender.com"; 
+const API_URL = "https://my-portfolio-vs3w.onrender.com"; 
 
 export default function AdminProjects() {
   const navigate = useNavigate();
