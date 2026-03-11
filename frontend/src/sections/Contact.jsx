@@ -17,7 +17,7 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://my-portfolio-backend-api.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
