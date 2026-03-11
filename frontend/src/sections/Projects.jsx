@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
 
-const API_URL = "https://my-portfolio-go8i.onrender.com"; 
+const API_URL = "https://my-portfolio-vs3w.onrender.com"; 
 export default function Projects() {
   const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
