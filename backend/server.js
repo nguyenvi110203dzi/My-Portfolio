@@ -7,7 +7,11 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const app = express();
-app.use(express.json());
+app.use(cors({
+  origin: '*', // Cho phép tất cả các nguồn truy cập
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(cors());
 
 
