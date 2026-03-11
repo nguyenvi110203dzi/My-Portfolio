@@ -18,7 +18,7 @@ export default function AdminProjects() {
 
   const fetchProjects = async () => {
     try {
-      const res = await fetch(`${API_URL}/projects`); // 👇 Dùng API_URL
+      const response = await axios.get(${API_URL}/projects);
       setProjects(await res.json());
     } catch (error) { console.error(error); }
   };
