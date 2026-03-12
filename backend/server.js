@@ -5,7 +5,6 @@ const mysql = require('mysql2/promise');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
-
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -13,7 +12,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -28,6 +26,8 @@ const storage = new CloudinaryStorage({
   },
 });
 const upload = multer({ storage: storage });
+
+// Cấu hình Pool kết nối MySQL tối ưu cho Render & Aiven
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -42,11 +42,10 @@ const db = mysql.createPool({
     keepAliveInitialDelay: 10000
 });
 
+// Hàm khởi tạo DB viết lại để tránh lỗi lặp headers
 const initDb = async () => {
     try {
-        // Kiểm tra kết nối trước khi tạo bảng
-        const connection = await db.getConnection();
-        await connection.query(`
+        const [result] = await db.query(`
             CREATE TABLE IF NOT EXISTS projects (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL,
@@ -58,24 +57,27 @@ const initDb = async () => {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
-        connection.release(); // Giải phóng kết nối sau khi dùng xong
-        console.log("✅ Đã kết nối Aiven & Kiểm tra bảng thành công!");
+        console.log("✅ Kết nối MySQL Aiven thành công!");
     } catch (err) {
-        console.error("❌ Lỗi kết nối hoặc tạo bảng:", err.message);
+        console.error("❌ Lỗi kết nối Database:", err.message);
     }
 };
 initDb();
 
-app.post('/upload', upload.single('image'), (req, res) => {
-    if (!req.file) return res.status(400).json({ error: "Chưa chọn file!" });
-    res.json({ url: req.file.path });
-});
+// --- ROUTES ---
 
 app.get('/projects', async (req, res) => {
     try {
         const [rows] = await db.query('SELECT * FROM projects ORDER BY id DESC');
-        res.json(rows);
-    } catch (err) { res.status(500).json({ error: err.message }); }
+        return res.json(rows); // Thêm return để đảm bảo dừng hàm sau khi gửi res
+    } catch (err) { 
+        return res.status(500).json({ error: err.message }); 
+    }
+});
+
+app.post('/upload', upload.single('image'), (req, res) => {
+    if (!req.file) return res.status(400).json({ error: "Chưa chọn file!" });
+    return res.json({ url: req.file.path });
 });
 
 app.post('/projects', async (req, res) => {
@@ -85,8 +87,10 @@ app.post('/projects', async (req, res) => {
             'INSERT INTO projects (title, tech, image, description, gitUrl, demoUrl) VALUES (?, ?, ?, ?, ?, ?)', 
             [title, tech, image, description, gitUrl, demoUrl]
         );
-        res.json({ id: result.insertId, ...req.body });
-    } catch (err) { res.status(500).json({ error: err.message }); }
+        return res.json({ id: result.insertId, ...req.body });
+    } catch (err) { 
+        return res.status(500).json({ error: err.message }); 
+    }
 });
 
 app.put('/projects/:id', async (req, res) => {
@@ -96,17 +100,21 @@ app.put('/projects/:id', async (req, res) => {
             'UPDATE projects SET title = ?, tech = ?, image = ?, description = ?, gitUrl = ?, demoUrl = ? WHERE id = ?',
             [title, tech, image, description, gitUrl, demoUrl, req.params.id]
         );
-        res.json({ message: "Update thành công" });
-    } catch (err) { res.status(500).json({ error: err.message }); }
+        return res.json({ message: "Cập nhật thành công" });
+    } catch (err) { 
+        return res.status(500).json({ error: err.message }); 
+    }
 });
 
 app.delete('/projects/:id', async (req, res) => {
     try {
         await db.query('DELETE FROM projects WHERE id = ?', [req.params.id]);
-        res.json({ message: "Đã xóa thành công" });
-    } catch (err) { res.status(500).json({ error: err.message }); }
+        return res.json({ message: "Xóa thành công" });
+    } catch (err) { 
+        return res.status(500).json({ error: err.message }); 
+    }
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Server đang chạy tại port ${PORT}`);
+    console.log(`🚀 Server đang chạy ổn định tại port ${PORT}`);
 });
