@@ -56,7 +56,7 @@
       }
     }
   },
-  "contact": {
+"contact": {
     "title": "Get In Touch",
     "subtitle": "I'm open to Frontend Internship opportunities!",
     "name": "Your Name",
@@ -66,7 +66,7 @@
     "info_email": "Email",
     "info_phone": "Phone",
     "info_loc": "Location",
-    "connect_with_me": "Connect with me",
+    "connect_with_me": "Connect with me:"
   },
   "footer": {
     "title": "Let's work together!",
