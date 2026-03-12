@@ -64,8 +64,9 @@ export default function Contact() {
             <div className="pt-4">
                     <h3 className="text-lg font-bold text-slate-700 dark:text-slate-200 mb-4">
                       {t('contact.connect_with_me')}
-                    </h3>              <div className="flex gap-4">
-                                <a 
+                    </h3>              
+              <div className="flex gap-4">
+                <a 
                   href="https://www.facebook.com/viiter1102" 
                   target="_blank" 
                   rel="noopener noreferrer"
