@@ -7,13 +7,12 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const app = express();
+app.use(express.json());
 app.use(cors({
-  origin: '*', // Cho phép tất cả các nguồn truy cập
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use(cors());
-
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -29,20 +28,25 @@ const storage = new CloudinaryStorage({
   },
 });
 const upload = multer({ storage: storage });
-
-
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    ssl: { rejectUnauthorized: false }
+    ssl: { rejectUnauthorized: false },
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 10000
 });
 
 const initDb = async () => {
     try {
-        await db.query(`
+        // Kiểm tra kết nối trước khi tạo bảng
+        const connection = await db.getConnection();
+        await connection.query(`
             CREATE TABLE IF NOT EXISTS projects (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL,
@@ -54,9 +58,10 @@ const initDb = async () => {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
+        connection.release(); // Giải phóng kết nối sau khi dùng xong
         console.log("✅ Đã kết nối Aiven & Kiểm tra bảng thành công!");
     } catch (err) {
-        console.error("❌ Lỗi kết nối:", err);
+        console.error("❌ Lỗi kết nối hoặc tạo bảng:", err.message);
     }
 };
 initDb();
@@ -102,4 +107,6 @@ app.delete('/projects/:id', async (req, res) => {
     } catch (err) { res.status(500).json({ error: err.message }); }
 });
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log('🚀 Server running at port ' + PORT));
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server đang chạy tại port ${PORT}`);
+});
