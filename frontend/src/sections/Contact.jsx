@@ -62,8 +62,9 @@ export default function Contact() {
               <div><p className="text-sm text-slate-500 dark:text-slate-400">{t('contact.info_loc')}</p><p className="font-semibold text-slate-800 dark:text-white">Quận 8, TP. Hồ Chí Minh</p></div>
             </div>
             <div className="pt-4">
-              <h3 className="text-lg font-bold text-slate-700 dark:text-slate-200 mb-4">Kết nối với mình:</h3>
-              <div className="flex gap-4">
+                    <h3 className="text-lg font-bold text-slate-700 dark:text-slate-200 mb-4">
+                      {t('contact.connect_with_me')}
+                    </h3>              <div className="flex gap-4">
                                 <a 
                   href="https://www.facebook.com/viiter1102" 
                   target="_blank" 
