@@ -65,7 +65,9 @@
     "btn_send": "Gửi Tin Nhắn",
     "info_email": "Email",
     "info_phone": "Điện thoại",
-    "info_loc": "Địa chỉ"  },
+    "info_loc": "Địa chỉ" ,
+    "connect_with_me": "Kết nối với mình:"
+  },
    "footer": {
     "title": "Hãy cùng hợp tác!",
     "subtitle": "Bạn có ý tưởng dự án? Hãy liên hệ để biến nó thành hiện thực.",

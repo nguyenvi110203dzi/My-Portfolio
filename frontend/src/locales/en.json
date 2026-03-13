@@ -65,7 +65,8 @@
     "btn_send": "Send Message",
     "info_email": "Email",
     "info_phone": "Phone",
-    "info_loc": "Location"
+    "info_loc": "Location",
+    "connect_with_me": "Connect with me:"
   },
   "footer": {
     "title": "Let's work together!",
