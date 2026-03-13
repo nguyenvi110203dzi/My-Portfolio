@@ -7,11 +7,20 @@ const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const app = express();
 app.use(express.json());
+<<<<<<< Updated upstream
+=======
+
+// Cấu hình CORS chuẩn
+>>>>>>> Stashed changes
 app.use(cors({
   origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -113,8 +122,17 @@ app.delete('/projects/:id', async (req, res) => {
     } catch (err) { 
         return res.status(500).json({ error: err.message }); 
     }
+<<<<<<< Updated upstream
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server đang chạy ổn định tại port ${PORT}`);
 });
+=======
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server đang chạy ổn định tại port ${PORT}`);
+});
+>>>>>>> Stashed changes
